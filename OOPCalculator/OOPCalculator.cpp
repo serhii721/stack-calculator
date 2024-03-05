@@ -12,12 +12,22 @@ int main()
 	//
 	cout << "Calculator\n"
 		<< "______________________________\n\n"
-		<< "Available operations: addition(+), subtraction(-), multiplication(*), division(/)\n\n"
+		<< "Available operations: addition \"+\", subtraction \"-\", multiplication \"*\", division \"/\", brackets \"()\"\n\n"
 		<< "Write your expression: (Ctrl + Z to exit)\n";
 
 	while (getline(cin, expression))
-		cout << "\nResult: " << calculator.calculate(expression) << "\n\n"
-			 << "Write your expression:\n";
+	{
+		try
+		{
+			cout << "\nResult: " << calculator.calculate(expression) << "\n\n"
+				<< "Write your expression:\n";
+		}
+		catch (const exception& e)
+		{
+			cerr << "Error: " << e.what() << "\n\n";
+			cout << "Write your expression:\n";
+		}
+	}
 
 	return 0;
 }

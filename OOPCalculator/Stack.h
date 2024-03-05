@@ -11,6 +11,7 @@ public:
 	Stack();
 	~Stack();
 
+	int getSize() const;
 	bool isEmpty() const;
 	bool isFull() const;
 
@@ -24,6 +25,12 @@ inline Stack<T>::Stack() : top(-1) { }
 
 template<typename T>
 inline Stack<T>::~Stack() { }
+
+template<typename T>
+inline int Stack<T>::getSize() const
+{
+	return top + 1;
+}
 
 template<typename T>
 inline bool Stack<T>::isEmpty() const
@@ -41,7 +48,7 @@ template<typename T>
 inline void Stack<T>::push(const T& VALUE)
 {
 	if (isFull())
-		throw new exception("Stack overflow");
+		throw runtime_error("Stack overflow");
 	data[++top] = VALUE;
 }
 
@@ -49,7 +56,7 @@ template<typename T>
 inline T Stack<T>::pop()
 {
 	if (isEmpty())
-		throw new exception("Stack underflow");
+		throw runtime_error("Stack underflow");
 	return data[top--];
 }
 
@@ -57,6 +64,6 @@ template<typename T>
 inline T Stack<T>::peek() const
 {
 	if (isEmpty())
-		throw new exception("Stack is empty");
+		throw runtime_error("Stack is empty");
 	return data[top];
 }

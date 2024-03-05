@@ -19,11 +19,11 @@ void Calculator::performOperation(char operation)
 		break;
 	case '/':
 		if (operand2 == 0)
-			throw new exception("Division by zero");
+			throw runtime_error("Division by zero");
 		valuesStack.push(operand1 / operand2);
 		break;
 	default:
-		throw new exception("Invalid operation");
+		throw runtime_error("Invalid operation");
 	}
 }
 
@@ -62,21 +62,26 @@ double Calculator::calculate(const string& expression)
 		{
 			while (!operatorsStack.isEmpty() && operatorsStack.peek() != '(')
 				performOperation(operatorsStack.pop());
-			operatorsStack.pop();
+			if (!operatorsStack.isEmpty())
+				operatorsStack.pop();
+			else
+				throw runtime_error("Mismatched parentheses");
 		}
+		else
+			throw runtime_error("Invalid expression");
 	}
 
 	// Performing leftover operations in priority queue
 	while (!operatorsStack.isEmpty())
 	{
 		if (valuesStack.isEmpty())
-			throw new exception("Invalid expression");
+			throw runtime_error("Invalid expression");
 		performOperation(operatorsStack.pop());
 	}
 
 	// Result must remain on top of values stack
-	if (valuesStack.isEmpty() || !operatorsStack.isEmpty())
-		throw new exception("Invalid expression");
+	if (valuesStack.isEmpty() || !operatorsStack.isEmpty() || valuesStack.getSize() > 1)
+		throw runtime_error("Invalid expression");
 
 	return valuesStack.pop();
 }
