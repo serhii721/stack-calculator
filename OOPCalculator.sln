@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.33529.398
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OOPCalculator", "OOPCalculator\OOPCalculator.vcxproj", "{CC091179-FA73-4774-A48F-AE719CD63534}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{814166D8-7168-4D58-8E75-D0A4F7FCF5C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,10 @@ Global
 		{CC091179-FA73-4774-A48F-AE719CD63534}.Release|x64.Build.0 = Release|x64
 		{CC091179-FA73-4774-A48F-AE719CD63534}.Release|x86.ActiveCfg = Release|Win32
 		{CC091179-FA73-4774-A48F-AE719CD63534}.Release|x86.Build.0 = Release|Win32
+		{814166D8-7168-4D58-8E75-D0A4F7FCF5C9}.Debug|x64.ActiveCfg = Debug
+		{814166D8-7168-4D58-8E75-D0A4F7FCF5C9}.Debug|x86.ActiveCfg = Debug
+		{814166D8-7168-4D58-8E75-D0A4F7FCF5C9}.Release|x64.ActiveCfg = Release
+		{814166D8-7168-4D58-8E75-D0A4F7FCF5C9}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
